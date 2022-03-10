@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #2d3142;
+            height:100vh;
+        }
+        .container{
+            background-color: #fff;
+            width:30%;
+            min-width: 300px;
+            border-radius: 10px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .list-container{
+            padding:30px;
+        }
+
+        .list-container input{
+            height:38px;
+            width:70%;
+            border: 2px solid #d1d3d4;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size:15px;
+            color: #111111;
+            font-weight: 500;
+            padding:15px;
+        }
+        input:focus{
+            color:grey;
+            border-color: #0d75ec;
+        }
+        #push{
+            position: relative;
+            float: right;
+            width: 20%;
+            height: 37px;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            border-radius: 5px;
+            cursor:pointer;
+            border:none;
+            background-color: #ef8354;
+        }
+        #tasks{
+            background-color: #ffffff;
+            padding: 30px 20px;
+            margin-top: 10px;
+            border-radius: 10px;
+            width: 100%;
+            position: relative;
+        }
+        .task{
+            background-color: #4f5d7522;
+            display: flex;
+            justify-content: space-between;
+            height:40px;
+            align-items: center;
+            padding:5px 10px;
+            margin-bottom:10px;
+            border-radius: 5px;
+            border: 2px solid #4f5d7522;
+            cursor: pointer;
+        }
+        .task:hover{
+            border-color: #448ada;
+        }
+        .task span{
+            font-family: 'Poppings',sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            color:#323232e8;
+            
+        }
+        .delete{
+            background-color: #6c6c6f;
+            cursor: pointer;
+            height:110%;
+            width:30px;
+            border-radius: 5px;
+            outline:none;
+        }
+        .fa-trash-alt{
+        color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="list-container">
+            <form action="">
+                <input type="text" placeholder="Task to be done..">
+                <button type='submit' id="push">Add</button>
+            </form>
+
+        </div>
+
+        <div id="tasks"></div>
+    </div>
+    <script>
+        const form = document.querySelector('.list-container form')
+        form.addEventListener('submit',(e) => {
+            e.preventDefault();
+            const input = document.querySelector('.list-container input')
+            const tasks = document.querySelector('#tasks')
+
+            if(input.value.length == 0){
+                alert('Please input something')
+            }else{
+                tasks.innerHTML += `
+                <div class='task'> 
+                    <span class='task-name'>${input.value}</span>
+                    <button class='delete'>
+                        <i class='far fa-trash-alt'></i> 
+                    </button>
+                </div>
+                `
+                 input.value = '';
+                 input.focus();
+
+            }
+            const currentTasks = document.querySelectorAll('.delete')
+            for(let task of currentTasks){
+                task.addEventListener('click',() => {
+                    task.parentNode.remove();
+                })
+            }
+        })
+    </script>
+</body>
+</html>

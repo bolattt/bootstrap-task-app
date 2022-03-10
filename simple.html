@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">   
+            <div class="col-4">
+                <form>
+                    <div class="form-group">
+                      <label for="taskName">Task Name</label>
+                      <input type="text" class="form-control" id="taskName" placeholder="name of task">
+                    </div>
+                    <div class="form-group">
+                      <label for="priority">Priority</label>
+                      <select class="form-control" id="priority">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>  
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="assignTo">Assign To</label>
+                      <select multiple class="form-control" id="assignTo">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <textarea class="form-control" id="description" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">submit</button>
+                  </form>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-6">
+                <ul class="list-group my-5" id="todoList">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">And a fifth one</li>
+                  </ul>
+            </div>
+         
+        </div>
+        <div class="row mt-5">
+            <div class="col-6">
+                <div class="container">
+                    <h1 class="my-5">Task List</h1>
+                    <div class="row">
+                        <div class="col">
+                            <h2>New Task</h2>
+                            <form id="newTaskForm">
+                                <div class="form-group">
+                                    <label for="newTaskNameInput">Name</label>
+                                    <input type="text" class="form-control" id="newTaskNameInput">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newTaskDescription">Description</label>
+                                    <textarea type="text" class="form-control" id="newTaskDescription"></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="newTaskAssignedTo">Assigned To</label>
+                                        <input type="text" class="form-control" id="newTaskAssignedTo">
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="newTaskDueDate">Due Date</label>
+                                        <input type="date" class="form-control" id="newTaskDueDate">
+                                    </div>
+                                </div>
+                                <div id="alertMessage" style="display: none" class="alert alert-danger" role="alert">
+                                Error message    
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Add Task</button>
+                            </form>
+                        </div>
+
+                      
+                    </div>
+            </div>
+         
+        </div>
+        <div class="col-6">
+            <h1 class="display-4">My Tasks</h1>
+            <div id="list-items">
+                <div class="card" style="width: 18rem;">                
+                    <div class="card-body">
+                        <h5 class="card-title">Task 1</h5>
+                        <p class="card-text">task 1 description</p>
+                        <p class="card-text">Santiago Carrillo</p>
+                        <p class="card-text">Due Date: Aug 20 - 2020</p>
+                        <span class="badge badge-primary">IN PROGRESS</span>
+                        <a href="#" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+                <br />
+                <div class="card" style="width: 18rem;">                
+                    <div class="card-body">
+                        <h5 class="card-title">Task 2</h5>
+                        <p class="card-text">task 2 description</p>
+                        <p class="card-text">Santiago Carrillo</p>
+                        <p class="card-text">Due Date: Sep 20 - 2020</p>
+                        <span class="badge badge-success">DONE</span>
+                        <a href="#" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+                <br />
+                <div class="card" style="width: 18rem;">                
+                    <div class="card-body">
+                        <h5 class="card-title">Task 3</h5>
+                        <p class="card-text">task 3 description</p>
+                        <p class="card-text">Santiago Carrillo</p>
+                        <p class="card-text">Due Date: Feb 20 - 2021</p>
+                        <span class="badge badge-warning">PENDING</span>
+                        <a href="#" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+                <br />
+                <div class="card" style="width: 18rem;">                
+                    <div class="card-body">
+                        <h5 class="card-title">Task 4</h5>
+                        <p class="card-text">task 4 description</p>
+                        <p class="card-text">Santiago Carrillo</p>
+                        <p class="card-text">Due Date: Aug 20 - 2020</p>
+                        <span class="badge badge-success">DONE</span>
+                        <a href="#" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+                <br />
+                <div class="card" style="width: 18rem;">                
+                    <div class="card-body">
+                        <h5 class="card-title">Task 5</h5>
+                        <p class="card-text">task 5 description</p>
+                        <p class="card-text">Santiago Carrillo</p>
+                        <p class="card-text">Due Date: Oct 15 - 2020</p>
+                        <span class="badge badge-primary">IN PROGRESS</span>
+                        <a href="#" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+                <br />
+            </div>
+        
+    </div>   
+    </div>
+
+
+ 
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+<script src="./js/script.js"></script>
+<script src="./js/taskManger.js"></script>
+</body>
+</html>
